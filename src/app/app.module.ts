@@ -8,6 +8,19 @@ import { PropertyListComponent } from './property/property-list/property-list.co
 import { HttpClientModule } from '@angular/common/http';
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: PropertyListComponent,
+  },
+  {
+    path: 'add-property',
+    component: AddPropertyComponent,
+  },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +29,7 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
     PropertyListComponent,
     AddPropertyComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
   providers: [HousingService],
   bootstrap: [AppComponent],
 })
