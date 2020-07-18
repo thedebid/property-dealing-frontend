@@ -1,0 +1,43 @@
+[{
+    "id": 1,
+    "name": "Amali House",
+    "type": "House",
+    "price": 5000
+  },
+  {
+    "id": 2,
+    "name": "Amali House",
+    "type": "House",
+    "price": 5000
+  },
+  {
+    "id": 3,
+    "name": "Amali House",
+    "type": "House",
+    "price": 5000
+  },
+  {
+    "id": 4,
+    "name": "Amali House",
+    "type": "House",
+    "price": 9000
+  },
+  {
+    "id": 5,
+    "name": "Amali House",
+    "type": "House",
+    "price": 5000
+  },
+  {
+    "id": 6,
+    "name": "Amali House",
+    "type": "House",
+    "price": 9000
+  },
+  {
+    "id": 1,
+    "name": "Amali House",
+    "type": "House",
+    "price": 5000
+  }
+]
