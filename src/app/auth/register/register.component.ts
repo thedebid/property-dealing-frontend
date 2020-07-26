@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/model/user/user';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,11 @@ import { User } from 'src/app/model/user/user';
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   user: User;
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private alertifySerice: AlertifyService
+  ) {}
 
   ngOnInit(): void {
     /* this.registrationForm = new FormGroup(
@@ -51,8 +56,8 @@ export class RegisterComponent implements OnInit {
     return fg.get('password').value === fg.get('cpassword').value
       ? null
       : {
-        notmatched: true,
-      };
+          notmatched: true,
+        };
   }
 
   //Getter methods for form control
@@ -73,12 +78,12 @@ export class RegisterComponent implements OnInit {
   }
 
   userData(): User {
-    return this.user = {
+    return (this.user = {
       username: this.username.value,
       email: this.email.value,
       password: this.password.value,
       mobile: this.mobile.value,
-    };
+    });
   }
   onSubmit() {
     //console.log(this.registrationForm.value);
@@ -86,5 +91,6 @@ export class RegisterComponent implements OnInit {
     // localStorage.setItem('CurrentUser', JSON.stringify(this.user));
     this.userService.addUser(this.userData());
     this.registrationForm.reset();
+    this.alertifySerice.success('User Registered Successfully');
   }
 }
