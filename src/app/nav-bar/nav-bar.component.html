@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class=" navbar-brand" routerLink="/">PDA</a>
+    <a class="navbar-brand" routerLink="/">PDA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,33 +9,53 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Buy
+          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" routerLink="/">Buy
             <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="#">Rent</a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/add-property">List Property(Free)</a>
         </li>
-
       </ul>
       <!--  <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>-->
-      <ul class="navbar-nav ">
-
+      <ul class="navbar-nav">
         <li class="nav-item" *ngIf="!loggedIn()">
-          <a class=" nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item " *ngIf="!loggedIn()">
-          <a class="nav-link" routerLinkActive="active" routerLink="/register">Register </a>
+        <li class="nav-item" *ngIf="!loggedIn()">
+          <a class="nav-link" routerLinkActive="active" routerLink="/register">Register
+          </a>
         </li>
+
+        <!--
         <li class="nav-item " *ngIf="loggedIn()">
           <a class="nav-link" routerLinkActive="active" (click)="logout()">Logout </a>
         </li>
+      -->
 
+        <div *ngIf="loggedIn()" class="dropdown mr-5" dropdown>
+          <a routerLink="/" class="dropdown-toggle text-light wl" dropdownToggle (click)="(false)">Welcome
+          </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-tachometer"></i> Dashboard
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-user-circle"></i> My Profile
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fa fa-key"></i> Change Password
+            </a>
+            <a class="dropdown-item" (click)="logout()">
+              <i class="fa fa-sign-out"></i> Logout
+            </a>
+          </div>
+        </div>
       </ul>
     </div>
   </div>

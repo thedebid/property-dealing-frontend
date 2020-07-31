@@ -15,7 +15,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { AlertifyService } from './services/alertify.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// RECOMMENDED
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AuthService } from './services/auth.service';
 const appRoutes: Routes = [
   {
     path: '',
@@ -60,8 +64,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
   ],
-  providers: [HousingService, UserService, AlertifyService],
+  providers: [HousingService, UserService, AlertifyService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

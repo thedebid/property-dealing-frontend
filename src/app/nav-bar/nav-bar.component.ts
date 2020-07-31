@@ -9,14 +9,14 @@ import { AlertifyService } from '../services/alertify.service';
 })
 export class NavBarComponent implements OnInit {
   constructor(private router: Router, private alertify: AlertifyService) {}
-
+  //loggedinUser: string;
   ngOnInit(): void {}
   loggedIn() {
     return localStorage.getItem('token');
   }
   logout() {
     localStorage.removeItem('token');
-    this.alertify.success('logout success');
+    this.alertify.success('you are logged out !');
     this.router.navigate(['/login']);
   }
 }
