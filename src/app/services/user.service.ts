@@ -9,12 +9,12 @@ export class UserService {
 
   addUser(user: User) {
     let users = [];
-    if (localStorage.getItem('CurrentUser')) {
-      users = JSON.parse(localStorage.getItem('CurrentUser'));
+    if (localStorage.getItem('Users')) {
+      users = JSON.parse(localStorage.getItem('Users'));
       users = [user, ...users];
     } else {
       users = [user];
     }
-    localStorage.setItem('CurrentUser', JSON.stringify(users));
+    localStorage.setItem('Users', JSON.stringify(users));
   }
 }
