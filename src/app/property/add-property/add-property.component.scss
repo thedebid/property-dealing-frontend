@@ -1,1 +1,15 @@
-
+.card-header > h4 {
+  color: white;
+}
+.card-header {
+  height: 42px;
+  padding: 5px 10px !important;
+  background-color: #007bff;
+}
+.photo-control {
+  min-height: 300px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px dashed blue;
+  margin: 5px;
+}
